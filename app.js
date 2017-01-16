@@ -5,8 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var session = require('express-session');
-
 var index = require('./routes/index');
 var users = require('./routes/users');
 
@@ -16,8 +14,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// session  next line added by hufei
-app.use(session({secret: 'ssshhhhh'}));
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -25,24 +21,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-
-var sess;
-
-app.get('/',function(req,res){
-sess = req.session;
-//Session set when user Request our app via URL
-if(sess.email) {
-/*
-* This line check Session existence.
-* If it existed will do some action.
-*/
-    res.redirect('/admin');
-}
-else {
-    res.render('index.html');
-}
-});
 
 app.use('/', index);
 app.use('/users', users);
