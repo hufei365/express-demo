@@ -5,16 +5,25 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var session = require('express-session');
+var session = require('express-session'); // session 模块
+var exphbs  = require('express-handlebars');
 
+var filter = require('./routes/filter');
+var login = require('./routes/login');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
 
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+//app.set('view engine', 'jade');
+var hbs = exphbs.create({
+  extname: '.hbs'
+});
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -33,34 +42,10 @@ app.use(session({
   saveUninitialized: true,
 }));
 // session validate
- app.get('/awesome', function(req, res){
-
-     if(req.session.lastPage) {
-         console.log('Last page was: ' + req.session.lastPage + ".");
-     }
-     req.session.lastPage = '/awesome'; //每一次访问时，session对象的lastPage会自动的保存或更新内存中的session中去。
-     res.send("You're Awesome. And the session expired time is: " + req.session.cookie.maxAge);
- });
-
- app.get('/radical', function(req, res){
-     if (req.session.lastPage) {
-         console.log('Last page was: ' + req.session.lastPage + ".");
-     }
-     req.session.lastPage = '/radical';
-     res.send('What a radical visit! And the session expired time is: ' + req.session.cookie.maxAge);
- });
-
- app.get('/tubular', function(req, res){
-     if (req.session.lastPage){
-         console.log("Last page was: " + req.session.lastPage + ".");
-     }
-
-     req.session.lastPage = '/tubular';
-     res.send('Are you a suffer? And the session expired time is: ' + req.session.cookie.maxAge);
- });
 
 
-app.use('/', index);
+app.use('/login', login);
+app.use('/index', index);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
