@@ -1,0 +1,324 @@
+﻿/**
+ * @author:             nuer
+ * @createDate:         2015-12-31
+ * @lastModifiedBy:     tomasran
+ */
+
+@mixin base-icon{
+    display: -moz-inline-box;
+    -moz-box-orient: vertical;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+}
+
+.ico-exclamation-64 {
+    @include fis-icon(64px);
+    background-image: url(./img/exclamation-point.png?__sprite);
+}
+
+.ico-cancel-20 {
+    @include fis-icon(20px);
+    background-image: url(./img/ico-cancel-20.png?__sprite);
+}
+
+.ico-del-20 {
+    @include fis-icon(20px);
+    background-image: url(./img/ico-del-20.png?__sprite);
+}
+
+.ico-pass {
+    @include fis-icon-rect(17px, 13px);
+    background-image: url(./img/ico-pass.png?__sprite);
+}
+
+.ico-pass-20 {
+    @include fis-icon(20px);
+    background-image: url(./img/ico-pass.png?__sprite);
+}
+
+.ico-help-16{
+    @include fis-icon(16px);
+    background-image:url(./img/help-16.png?__sprite);
+}
+
+.ico-edit-36{
+    @include fis-icon(36px);
+    background-image:url(./img/pen-36.png?__sprite);
+}
+
+.ico-shrink-up{
+    @include fis-icon-rect(10px, 6px);
+    background-image: url(./img/i-shrink-up.png?__sprite);
+}
+
+.ico-shrink-down{
+    @include fis-icon-rect(10px, 6px);
+    background-image: url(./img/i-shrink-down.png?__sprite);
+}
+.icon-white-down{
+    @include fis-icon-rect(10px, 6px);
+    background-image: url(./img/icon-white-down.png?__sprite);
+}
+
+.icon-white-up{
+    background-image: url(./img/icon-white-up.png?__sprite);
+}
+/*搜索icon */
+.ico-search{
+  @include fis-icon(18px);
+  background-image: url(img/ico-search.png?__sprite);
+}
+
+/* 对勾icon */
+.ico-checked{
+    @include fis-icon-rect(19px, 15px);
+    background-image: url(./img/checked_img.png?__sprite);
+}
+
+/* 关闭或删除icon */
+.ico-close{
+    @include fis-icon-rect(16px, 16px);
+    background-image: url(./img/X_16x16.png?__sprite);
+}
+
+.ico-close-yellow {
+    @include fis-icon-rect(10px, 10px);
+    background-image: url(./img/ico-close-yellow.png?__sprite);
+}
+
+/*右边蓝色箭头*/
+.ico-right-blue{
+    color: #0096e1;
+    font-weight:700;
+    font-style: normal;
+    font-family: simsun;
+}
+
+/*右边灰色箭头*/
+.ico-right-gray{
+    color: gray;
+    font-weight:700;
+    font-style: normal;
+    font-family: simsun;
+}
+
+/*下边蓝色箭头*/
+.ico-down-blue, .peg-down{
+    @include fis-icon-rect(10px, 6px);
+    background-image: url(./img/down_blue_10x6.png?__sprite);
+}
+
+/*上边蓝色箭头*/
+.ico-up-blue, .peg-up{
+    @include fis-icon-rect(10px, 6px);
+    background-image: url(./img/up_blue_10x6.png?__sprite);
+}
+
+/* 引用icon */
+.ico-reference{
+    @include fis-icon-rect(13px, 12px);
+    background-image:url(./img/ico-reference.png?__sprite);
+}
+
+/* 引用icon */
+.ico-upload{
+    @include fis-icon-rect(14px, 14px);
+    background-image:url(./img/ico-upload.png?__sprite);
+}
+
+
+
+/* 1正确 2错误 5半对半错 6未批改 7未提交 */
+/* 正确 */
+.ico-right,.ico-status-1{
+    @include fis-icon-rect(17px, 13px);
+    background-image:url(./img/right_17x13.png?__sprite);
+}
+
+/* 错误 未提交 */
+.ico-wrong,.ico-status-2,.ico-status-7{
+    @include fis-icon-rect(13px, 13px);
+    background-image:url(./img/wrong_13x13.png?__sprite);
+}
+
+/* 半对 */
+.ico-half,.ico-status-5{
+    @include fis-icon-rect(17px, 13px);
+    background-image:url(./img/half_17x13.png?__sprite);
+}
+
+/* 未批改 */
+.ico-none,.ico-status-6{
+    @include fis-icon-rect(11px, 14px);
+    background-image:url(./img/none_11x14.png?__sprite);
+}
+
+/* 白色向上箭头 10x6 */
+.ico-white-up-10-6{
+    @include fis-icon-rect(10px, 6px);
+    background-image: url(./img/ico-white-up-10-6.png?__sprite);
+}
+
+/* 深灰向下箭头 10x6 */
+.ico-black-down-10-6{
+  @include fis-icon-rect(10px, 6px);
+  background-image: url(./img/ico-black-down-10-6.png?__sprite);
+}
+
+
+/* 灰色向上箭头 10x6 */
+.ico-gray-up-10-6{
+    @include fis-icon-rect(10px, 6px);
+    background-image: url(./img/ico-gray-up-10-6.png?__sprite);
+}
+
+/* 灰色向上箭头 18x9 */
+.ico-gray-up-18-9{
+
+    @include fis-icon-rect(18px, 9px);
+    background-image: url(./img/ico-gray-up-18-9.png?__sprite);
+}
+
+
+/* 大的添加符号 */
+.ico-add-24{
+    @include fis-icon-rect(24px, 24px);
+    background-image: url(./img/ico-add-24.png?__sprite);
+}
+
+/* 16添加符号 */
+.ico-add-16{
+    @include fis-icon-rect(16px, 16px);
+    background-image: url(./img/ico-add-16.png?__sprite);
+}
+/* 16添加符号 */
+.ico-add-10{
+    @include fis-icon-rect(10px, 10px);
+    background-image: url(./img/ico-add-10.png?__sprite);
+}
+/* 灰色关闭按钮 */
+.ico-close-gray-14{
+    @include fis-icon-rect(14px, 14px);
+    background-image: url(./img/ico-close-gray-14.png?__sprite);
+}
+// 下载
+.ico-download{
+    @include fis-icon-rect(11px, 12px);
+    background-image: url(./img/ico-download.png?__sprite);
+}
+// 收藏
+.ico-user{
+    @include fis-icon-rect(11px, 12px);
+    background-image: url(./img/ico-user.png?__sprite);
+}
+//  引用
+.ico-reference{
+    @include fis-icon-rect(13px, 12px);
+    background-image: url(./img/ico-reference.png?__sprite);
+}
+// 盒子
+.ico-box-16-18{
+    @include fis-icon-rect(16px, 18px);
+    background-image: url(./img/ico-box-16-18.png?__sprite);
+}
+// 上传图片
+.ico-upload-14{
+    @include fis-icon-rect(14px, 14px);
+    background-image: url(./img/ico-upload-14.png?__sprite);
+}
+// 添加图片
+.ico-add-14{
+    @include fis-icon-rect(14px, 14px);
+    background-image: url(./img/ico-add-14.png?__sprite);
+}
+
+//审核通过
+.ico-operate-over {
+    @include fis-icon-rect(14px, 14px);
+    background-image: url(./img/ico-operate-over.png?__sprite);
+}
+//审核中
+.ico-operate-pre {
+    @include fis-icon-rect(14px, 14px);
+    background-image: url(./img/ico-operate-pre.png?__sprite);
+}
+//审核未通过
+.ico-operate-no {
+    @include fis-icon-rect(14px, 14px);
+    background-image: url(./img/ico-operate-no.png?__sprite);
+}
+
+//下载
+.ico-download-num {
+    @include fis-icon-rect(14px, 14px);
+    background-image: url(./img/ico-download-num.png?__sprite);
+}
+//加为我的
+.ico-mine-num {
+    @include fis-icon-rect(14px, 14px);
+    background-image: url(./img/ico-mine-num.png?__sprite);
+}
+//引用
+.ico-quote-num {
+    @include fis-icon-rect(14px, 14px);
+    background-image: url(./img/ico-quote-num.png?__sprite);
+}
+//正确率
+.ico-correct-num {
+    @include fis-icon-rect(14px, 14px);
+    background-image: url(./img/ico-correct-num.png?__sprite);
+}
+//作答
+.ico-answer-num {
+    @include fis-icon-rect(14px, 14px);
+    background-image: url(./img/ico-answer-num.png?__sprite);
+}
+
+// 放大镜
+.ico-zoom-box{
+    cursor:url("./img/ico_zoomer_open.ico"), auto;
+}
+/*
+ * 资源类型图标
+ * 样式应用举例 class='ico-res-30-ppt'
+ */
+$res-size: 24, 30, 36, 46;
+$res-type: 'ppt', 'microvideo','pic', 'simul','txt', 'video','word','wps','audio','excel',
+        'pdf','other','guidance','myapp','resourcebox';
+@each $size in $res-size {
+    @each $type in $res-type {
+        $up_type: to-upper-case($type);
+        .ico-res-#{$size}-#{$type}, .ico-res-#{$size}-#{$up_type} {
+            @include fis-icon(#{$size}px);
+            background-image: url(./img/ico-res-#{$size}/#{$type}.png?__sprite);
+        }
+    }
+}
+.ico-res-24-ppt {
+    @include fis-icon(24px);
+    background-image: url(./img/ico-res-24/ppt.png?__sprite);
+}
+.ico-res-36-ppt {
+    @include fis-icon(36px);
+    background-image: url(./img/ico-res-36/ppt.png?__sprite);
+}
+/*
+ * 资源背景图
+ * 样式应用举例 class='ico-res-thum-ppt/ico-res-thum-PPT'
+ */
+@each $type in $res-type {
+    $up_type: to-upper-case($type);
+    .ico-res-thum-#{$type},.ico-res-thum-#{$up_type}{
+        @include fis-icon-rect(94px, 75px);
+        background-image: url(./img/ico-resource/#{$type}.png?__sprite);
+    }
+}
+
+
+/*用户反馈 图标*/
+.ico-discussion-14{
+    @include fis-icon(14px);
+    background-image: url(./img/discussion.png?__sprite);
+}
+

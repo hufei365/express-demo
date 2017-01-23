@@ -1,0 +1,92 @@
+/**
+ * 样式规则
+ * @Vincent
+ */
+
+// ************** 颜色 ***************
+// ****** 基础颜色 ******
+// 蓝色
+$color-blue:#0095f1;
+// 橘色
+$color-red:#ff591f;
+// 绿色
+$color-green:#0bbd64;
+// 黑色
+$color-black:#383d48;
+// 深灰色
+$color-gray:#839096;
+// 白色
+$color-white:#fff;
+
+// ****** 功能颜色 ******
+//  边框 输入框hover边框 
+$color-border:#c1cddb;
+//  分隔线 输入框默认边框 
+$color-line:#dee6ee;
+// 浅背景色 输入框底色
+$color-light-gray:#f8fafb;
+// 大背景色
+$color-bg-gray:#f2f5f7;
+//页面背景色
+$color-bg-page:#f4f7fb;
+//按钮默认字体颜色
+$color-btn:#1a1a1a;
+
+
+
+
+// ************** 字体 ***************
+$font-family: "Microsoft YaHei", "\u5b8b\u4f53",arial, helvetica, sans-serif, tahoma;
+// 常规大小
+$font-normal:14px;
+// 小字体
+$font-small:12px;
+// 页面标题 分类名称等
+$font-large:16px;
+// 大标题
+$font-xlarge:20px;
+// 特大标题
+$font-xxlarge:24px;
+
+// ************** 行高 **************
+$line-h-input:24px;
+// 字体14px 对应行高
+$line-h-normal:26px;
+// 字体12px 对应行高
+$line-h-small:22px;
+// 字体16px 对应行高
+$line-h-large:30px;
+// 字体20px 对应行高
+$line-h-xlarge:38px;
+// 字体24px 对应行高
+$line-h-xxlarge:46px;
+
+// ************** 留白 **************
+$padding-input:5px 12px;
+
+
+
+// ************** 弹窗 ***************
+//小窗口
+$dlg-small-width: 360px;
+$dlg-small-header-height : 40px;
+$dlg-small-footer-height : 50px;
+$dlg-small-content-paddingtb : 30px;
+$dlg-small-content-paddinglr : 40px;
+
+//正常窗口
+$dlg-normal-width: 600px;
+$dlg-normal-header-height : 50px;
+$dlg-normal-footer-height : 60px;
+$dlg-normal-content-paddingtb : 30px;
+$dlg-normal-content-paddinglr : 40px;
+
+//大窗口
+$dlg-large-width: 800px;
+$dlg-large-header-height : 50px;
+$dlg-large-footer-height : 60px;
+$dlg-large-content-paddingtb : 30px;
+$dlg-large-content-paddinglr : 40px;
+
+// ************** 布局宽度 ***************
+$layout-width : 1200px;

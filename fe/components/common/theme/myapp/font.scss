@@ -1,0 +1,105 @@
+/*
+ * 正文文字
+ */
+@import "./rule.scss";
+
+body {
+    font: #{$font-normal}/#{$line-h-normal} #{$font-family};
+    color: $color-black;
+} 
+
+//  * 第一层文字,字号16 
+h1, .h1 {
+    font: bold #{$font-xlarge}/#{$line-h-xlarge} #{$font-family};
+}
+//  * 第二层文字,字号15 
+h2, .h2 {
+    font: bold #{$font-large}/#{$line-h-large} #{$font-family};
+}
+//  * 第三层文字,字号14     
+h3, .h3 {      
+    font: bold #{$font-normal}/#{$line-h-normal} #{$font-family};
+}
+//  * 第四层文字,字号12 
+h4, .h4 {
+    font: bold #{$font-small}/#{$line-h-small} #{$font-family};
+}
+
+// *
+// * 链接相关
+// *
+a {
+    &:link,&:visited,&:hover{
+        color: $color-blue; 
+        text-decoration: none;
+    }
+    &:focus {
+        outline: 0;
+    }
+}
+
+
+// 蓝色文字, 给与链接色相同的地方使用 
+.f-blue, a.f-blue {
+    color: $color-blue;
+}
+// 红色文字 
+.f-red, a.f-red{
+    color: $color-red;
+}
+//  绿色字体 
+.f-green, a.f-green{
+    color:$color-green;
+}
+// 黑色文字 
+.f-black, a.f-black {
+    color: $color-black;
+}
+// 灰色文字 
+.f-gray, a.f-gray {
+    color: $color-gray;
+}
+// * 常用字体大小  
+//  普通粗细文字 
+.f-normal, a.f-normal {
+    font-size: $font-normal;
+    line-height: $line-h-normal;
+}
+.f-small{
+    font-size: $font-small;
+    line-height: $line-h-small;
+}
+.f-large{
+    font-size: $font-large;
+    line-height: $line-h-large;
+}
+.f-xlarge{
+    font-size: $font-xlarge;
+}
+.f-xxlarge{
+    font-size: $font-xxlarge;
+}
+
+
+
+//  加粗文字 
+.f-bold, a.f-bold {
+    font-weight: bold;
+}
+
+//  * 文本不折行 
+.f-nowrap {
+    white-space: nowrap; 
+}
+
+//  内容文字, 强制换行, 处理全英文代码等不换行问题 
+.f-wrap {
+    //white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+//  文本一行限高居中 
+.v-align {
+    margin: 0 auto;
+    text-align: center;
+}

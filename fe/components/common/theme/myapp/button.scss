@@ -1,0 +1,155 @@
+/*
+ * 按钮样式
+ * @Vincent
+ */
+
+@import "./rule.scss";
+// ************** 按钮规则方法 ***************
+// 基础定义
+@mixin btnfunc() {
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font-size: $font-normal;
+    text-decoration:none;
+    &:hover,&:active {
+        text-decoration: none;
+    }
+}
+
+// 按钮高度
+@mixin btn-height($height) {
+    height: $height - 2px;
+    line-height: $height - 2px;
+    &.btn-radius{
+        @include fis-border-radius($height/2);
+    }
+}
+
+@mixin btn-disabled(){
+    cursor: default !important;
+}
+
+
+@mixin btn-color($bg,$border:0,$font:$color-white){
+    @if $border == 0{
+        $border:$bg;
+    }
+    border-color: $border;
+    color: $font;
+    background-color:$bg;
+}
+
+@mixin btn-padding($padding){
+    padding:0 $padding;
+}
+
+@mixin btn-line-color($line){
+    @include btn-color($color-white,$line,$line);
+}
+
+/* 基类默认高度 配置简写模式 */
+/**
+ * 可以对以下规则在做方法整合，
+ * 使用循环遍历之类的 或者在封装一层各种行为的方法
+ * 但影响可读性 暂不做此处理
+ */
+.btn, a.btn{
+    @include btnfunc;
+
+    //根据规则 将 height padding 统一设置
+    &.btn-small,&.bs{
+        @include btn-padding(16px);
+        @include btn-height(28px);
+    }
+    &,&.btn-normal,&.bn{
+        @include btn-padding(20px);
+        @include btn-height(32px);
+    }
+    &.btn-large,&.bl{
+        @include btn-padding(24px);
+        @include btn-height(36px);
+    }
+
+
+
+    // 按钮颜色  包含 hover active disable 等状态
+    &, &.btn-blue-bg{
+        &,&:link,&:visited{
+            @include btn-color($color-blue);
+        }
+        &:hover{
+            @include btn-color(#12a1f9);
+        }
+        &:active{
+            @include btn-color(#007acc);
+        }
+        &.disable{
+            @include btn-disabled();
+            @include btn-color(#c1e6ff);
+        }
+    }
+    &.btn-red-bg{
+        &,&:link,&:visited{
+            @include btn-color($color-red);
+        }
+        &:hover{
+            @include btn-color(#ff6934);
+        }
+        &:active{
+            @include btn-color(#e04c16); //标注有误 psd吸取
+        }
+        &.disable{
+            @include btn-disabled();
+            @include btn-color(#ffcdbb);
+        }
+    }
+    &.btn-red-line{
+        &,&:link,&:visited{
+            @include btn-line-color($color-red);
+        }
+        &:hover{
+            @include btn-line-color(#f0551d);
+        }
+        &:active{
+            @include btn-line-color(#df4c16);
+        }
+        &.disable{
+            @include btn-disabled();
+            @include btn-line-color(#ffb399);
+        }
+    }
+    &.btn-gray-line{
+        &,&:link,&:visited{
+            @include btn-color($color-white,$color-line,$color-black);
+        }
+        &:hover{
+            @include btn-color($color-white,#99d6ff,$color-blue);
+        }
+        &:active{
+            @include btn-color($color-white,#007acc,$color-blue);
+        }
+        &.disable{
+            @include btn-disabled();
+            @include btn-color($color-white,$color-line,$color-border);
+        }
+    }
+    &.btn-grayl-bluet{
+        &,&:link,&:visited{
+            @include btn-color($color-white,$color-line,$color-blue);
+        }
+        &:hover{
+            @include btn-color($color-white,#99d6ff,$color-blue);
+        }
+        &:active{
+            @include btn-color($color-white,#007acc,$color-blue);
+        }
+        &.disable{
+            @include btn-disabled();
+            @include btn-color($color-white,$color-line,$color-border);
+        }
+    }
+}

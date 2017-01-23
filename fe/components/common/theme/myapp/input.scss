@@ -1,0 +1,82 @@
+/*
+ * 输入文本样式
+ * @Vincent
+ */
+
+@import "./rule.scss";
+
+
+input[type=text], input[type=password], textarea {
+	outline: none;
+	font-size: $font-normal;
+	line-height: $line-h-input;
+	padding: $padding-input;
+	border: 1px solid $color-line;
+	background-color: $color-light-gray;
+	&:hover{
+        border: 1px solid $color-border; 
+    }
+}
+
+input[type=radio], input[type=checkbox]{
+	vertical-align: middle; 
+	-webkit-appearance: none; 
+	-moz-appearance: none; 
+	-ms-appearance: none; 
+	-o-appearance: none; 
+	appearance: none; 
+	width:16px; 
+	height:16px; 
+	background: #fff;
+	border:1px solid #a4abb3; 
+	cursor: pointer; 
+	display: inline-block; 
+	outline: none; 
+	position: relative; 
+	margin-right: 0.1em;
+	border-radius: 1px;
+	&.disable, &:disabled {
+		border-color: #dee6ee;
+	}
+}
+input[type=radio] {
+	border-radius: 50%;
+}
+input[type=radio]:checked::before,input[type=checkbox]:checked::before{
+	width:16px;
+	height:16px;
+	position: absolute; 
+	content:''; 
+	display: inline-block;
+	top: -1px;
+	left: -1px;
+}
+.checkbox-blue, .checkbox-blue-small, .radio-blue {
+	display: inline-block;
+	cursor: pointer;
+	span {
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+.checkbox-blue input[type=checkbox]:checked::before {
+	background-image: url(./img/ico-search/checkbox-checked.png?__sprite);
+}
+.checkbox-blue input.disable[type=checkbox]:checked::before,  .checkbox-blue input[type=checkbox]:disabled:checked::before{
+	background-image: url(./img/ico-search/checkbox-checked-disable.png?__sprite);
+}
+.radio-blue input[type=radio]:checked::before {
+	background-image: url(./img/ico-search/radio-checked.png?__sprite);
+}
+.checkbox-blue-small input[type=checkbox] {
+	width: 12px;
+	height: 12px;
+}
+.checkbox-blue-small input[type=checkbox]:checked::before {
+	width: 12px;
+	height: 12px;
+	background-image: url(./img/ico-search/checkbox-checked-small.png?__sprite);
+}
+input:checked::before {
+  background-image: url(./img/ico-search/radio-checked.png?__sprite);
+}

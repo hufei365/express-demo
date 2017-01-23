@@ -1,0 +1,98 @@
+{
+    "FILE": {                     // 文件类型
+        "TYPE_TO_TEXT": {
+            "1"     : "课件",
+            "2"     : "题集",
+            "3"     : "文档",
+            "4"     : "教案",
+            "5"     : "导学案",
+            "6"     : "音频",
+            "7"     : "视频",
+            "8"     : "图片",
+            "10"    : "文库",
+            "PPT"   : "课件",
+            "AUDIO" : "音频",
+            "VIDEO" : "视频",
+            "PIC"   : "图片"
+        },
+        "TYPE_TO_VALUE": {
+            "CLIP": 1,              // 课件
+            "SIMUL": 2,             // 题集
+            "DOC": 3,               // 文档
+            "TEACHING_PLAN": 4,     // 教案
+            "GUIDE_PLAN": 5,        // 导学案
+            "AUDIO":6,              // 音频
+            "VIDEO":7,              // 视频
+            "PIC":8,            // 图片
+//            "MARTERIAL": 6,         // 素材
+            "RESOURCE_PACKAGE": 9,   //资源包
+            "WENKU":10                 // 文库
+        },
+        "TYPE": {
+            "VIDEO": "video",
+            "AUDIO": "audio",
+            "WORD": "word",
+            "PIC": "pic",
+            "PPT": "ppt",
+            "PDF": "pdf",
+            "EXCEL": "excel",
+            "SIMUL": "simul"
+        },
+        "FORMAT":{
+            "ppt"  : ["ppt","pptx"],    // 课件
+            "word" : ["doc","docx"],    // 文档
+            "excel": ["xls","xlsx"],    // 表格
+            "pdf"  : ["pdf"],           // pad
+            "pic"  : ["png","jpg","jpeg","bmp","gif"],  // 图片
+            "video": ["mp4","ts","vob","mpg","mov","3gp","3g2","f4v","webm","mkv","flv","dv","avi","asf","wmv"],      // 视频 由于m4a当做音频还是视频没有定论 暂时注掉m4a
+            "audio": ["mp3"]            // 音频
+        }
+    },
+    "SHARE": {
+        "TYPE_TO_TEXT": {
+            "school": "学校",
+            "platform": "平台",
+            "region": "集团"
+        }
+    },
+    "SCENE": {
+        "TYPE": {
+            "COURSE": 1,            // 上课
+            "HOMEWORK": 6,          // 作业
+            "SSESSMENT": 7,         // 测评
+            "PREVIEW": 8            // 预习
+        }
+    },
+
+	"TENANT_ID": "2782"	,	// 环信客服租户ID
+
+    "QUIZ" : {
+        "HARD_LEVEL": {  // 题目难易度
+            "1":"易",
+            "2":"中",
+            "3":"难",
+            "4":"极难"
+        },
+        "JUDGE_OPTION": ["错", "对"], // 判断题 （0：错；1：对）
+        "OPTIONS" : ["A","B","C","D","E","F","G","H","I","J","K","L"], // 目前最多允许12个选项
+
+        /**
+         CHOICE:选择型的结构 JUDGE：判断题；SHORT：简答结构； COMPREHENSIVE：普通复合题（material + children）
+         WITH_TRANSLATE:带译文的复合题（比如文言文阅读题，完形填空题） LISTENING：听力题（带译文和音频资料的复合题）
+         MAP：作图题； FIVE_OF_SEVER:7选5；PHOTO:拍照题；
+        */
+        // 结构名称
+        "STRUCTURE_ALIAS" : {
+            "CHOICE"           :       "1",
+            "JUDGE"            :       "2",
+            "SHORT"            :       "3",
+            "BLANK"            :       "4",
+            "COMPREHENSIVE"    :       "5",
+            "WITH_TRANSLATE"   :       "6",
+            "LISTENING"        :       "7",
+            "MAP"              :       "8",
+            "FIVE_OF_SEVEN"    :       "9",
+            "PHOTO"            :       "10"
+        } // 结构名称
+    }
+}

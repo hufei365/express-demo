@@ -1,0 +1,40 @@
+/*
+ * 弹窗样式
+ * @Zhangcl
+ */
+@import "./rule.scss";
+
+@mixin dlg-config($width:600px,$hheight:50px,$fheight:60px,$paddingtb:30px,$paddinglr:40px){
+  width: $width;
+  &.ui-dialog .ui-dialog-titlebar {
+	height:$hheight;
+	margin-bottom: 10px;
+	background:$color-light-gray;
+	.ui-dialog-title {
+	  line-height: $hheight;
+	  font-weight: normal;
+	}
+  }
+  &.ui-dialog .ui-dialog-content {
+	padding: $paddingtb $paddinglr;
+  }
+  &.ui-dialog .ui-dialog-buttonpane {
+	margin-top: 10px;
+	padding: 0 40px;
+	.ui-dialog-buttonset {
+	  height: $fheight;
+	  line-height: $fheight;
+	}
+  }
+}
+
+//普通窗口 包含滚动条情况
+.dlg-small{
+  @include dlg-config($dlg-small-width,$dlg-small-header-height,$dlg-small-footer-height,$dlg-normal-content-paddingtb,$dlg-normal-content-paddinglr);
+}
+.dlg-normal{
+  @include dlg-config($dlg-normal-width,$dlg-normal-header-height,$dlg-normal-footer-height,$dlg-normal-content-paddingtb,$dlg-normal-content-paddinglr);
+}
+.dlg-large{
+  @include dlg-config($dlg-large-width,$dlg-large-header-height,$dlg-large-footer-height,$dlg-large-content-paddingtb,$dlg-large-content-paddinglr);
+}

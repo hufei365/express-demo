@@ -1,0 +1,23 @@
+/*
+ * 工具类 myapp 专用
+ */
+
+@import "./rule.scss";
+
+// 背景颜色样式
+.bg-gray {
+    background-color: $color-bg-gray;
+}
+
+.bg-light-gray {
+	background-color: $color-light-gray;
+}
+
+.bg-white {
+    background-color: $color-white;
+}
+
+// 边框样式
+.border-gray {
+    border: solid 1px $color-line;
+}

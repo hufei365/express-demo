@@ -1,0 +1,400 @@
+
+@import "./rule.scss";
+
+
+/* 进度条 */ 
+@mixin progress-base($color){
+    display: inline-block;
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background-color: $color-line;
+    .bar {
+        display: block;
+        height: 6px;
+        border-radius: 3px;
+        background-color: $color;
+    }
+}
+
+/* 滚动条全局配置 */
+::-webkit-scrollbar{ width: 8px;}
+::-webkit-scrollbar:horizontal{ height: 8px;}
+::-webkit-scrollbar-button { width: 8px; height:1px;}
+::-webkit-scrollbar-track { background:transparent; border: thin solid #f2f2f2; box-shadow: 0px 0px 3px #dfdfdf inset; border-radius:10px;}
+::-webkit-scrollbar-thumb { background:#AAA; border: thin solid gray; border-radius:10px;}
+::-webkit-scrollbar-thumb:hover { background:#7d7d7d;}
+
+.progress {
+    @include progress-base($color-green);
+}
+.progress-gray {
+    @include progress-base($color-gray);
+}
+
+
+/* 搜索框 */
+.search-wrap {
+    font-size: $font-normal;
+    font-family: $font-family;
+    @include fis-icon-rect(280px, 30px);
+    line-height: 30px;
+    border: 1px solid $color-line;
+    .btn-none{
+        @include fis-icon-rect(20px, 30px);
+        background: transparent;
+        .ico-search{
+            margin-left: 5px;
+            font-style: normal;
+            @include fis-icon-rect(16px, 30px);
+            background-image: url(./img/ico-search/ico-search.png?__sprite);
+        }
+    }
+    &:hover {
+        border: 1px solid #99d6ff;
+        .search-box{
+            border-right: 1px solid #99d6ff;
+        }
+    }
+    &:active {
+        border: 1px solid #007acc;
+        .search-box{
+            border-right: 1px solid #007acc;
+        }
+    }
+    .search-box{
+        background: transparent;
+        @include fis-icon-rect(200px, 30px);
+        line-height: 30px;
+        color: #333;
+        border: none;
+        border-right: 1px solid $color-line;
+        outline: none;
+        width: 181px;
+        padding-left: 10px;
+    }
+    .bth-search{
+        text-decoration:none;
+        display: inline-block;
+        width: 68px;
+        text-align: center;
+        line-height: 30px;
+        i{
+            color: $color-blue;
+            padding: 0 6px;
+            font-style: normal;
+        }
+    }
+}
+
+/* 下拉框 */
+.drop-menu-wrap {
+    position: relative;
+    i {
+        @include fis-icon-rect(10px, 6px);
+        background-image: url(./img/down_blue_10x6.png?__sprite);
+    }
+    .drop-menu {
+        display: none;
+        position: absolute;
+        left: -1px;
+        right: -1px;
+        text-align: left;
+        background: $color-white;
+        border: 1px solid $color-line;
+        z-index: 1;
+        li a {
+            display: block;
+            padding: 0 20px;
+            border-top: 1px solid $color-line;
+            line-height: 30px;
+            &.first {
+                border-top: none;
+            }
+            &.disable {
+                color: $color-gray;
+                cursor: default;
+            }
+        }
+    }
+    &:hover {
+        i {
+            background-image: url(./img/up_blue_10x6.png?__sprite);
+        }
+        .drop-menu {
+            display: block;
+        }
+    }
+    &.btn.btn-grayl-bluet:hover {
+        border : 1px solid $color-line;
+    }
+}
+
+/*!
+ * Loading状态
+ */
+.page-mask{
+    position: fixed;
+    right: 0;
+    top:0;
+    left: 0;
+    bottom: 0;
+    z-index: 200;
+    background: #FFF;
+    background:  rgba(255,255,255,0.3);
+    .loading{
+        width:250px;
+        height: 250px;
+        background: url(./img/loading_global.gif) no-repeat center center #FFF;
+        position: absolute;
+        left: 50%;
+        top:50%;
+        margin-top: -125px;
+        margin-left: -125px;
+        &:before {
+            content: '';
+            position: absolute;
+            background: rgba(255,255,255,0.3);
+            @include fis-border-radius;
+            padding: 10px;
+            left: -10px;
+            top:-10px;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+.wgt-loading{
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-image: url(./img/loading.gif);
+}
+
+@each $type in disc, upper-alpha, lower-alpha, decimal, circle, square {
+  .list-style-#{$type},
+  .list-style-#{$type} li{
+    list-style-type:#{$type};
+  }
+}
+
+.text-search-box{
+  padding: 0 30px 0 10px;
+  outline:none;
+  border: 1px solid #d9d9d9;
+  border-radius: 17px;
+  height: 34px;
+  width:360px;
+}
+
+
+.sharing-tip{
+    padding-left: 8px;
+    width: 48px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    font-size: $font-small;
+    color:$color-white;
+    display: inline-block;
+    background: url("./img/sharing-tip.png?__sprite") no-repeat;
+}
+
+.detele-content {
+    text-align: center;
+    font-size: 16px;
+    .ico-exclamation-64 {
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+}
+
+/**
+ * 气泡提示
+ **/
+
+$zindex-popover: 99 ; // 现在弹窗是100 101 
+$popover-max-width: 276px;
+$font-size-base:14px;
+$popover-bg:#fbeed0;
+$popover-border-color:#eddaaf;
+$popover-border-radius : 3px;
+$popover-arrow-width:10px;
+$popover-title-bg:darken($popover-bg, 3%);
+$popover-arrow-outer-width:($popover-arrow-width+1);
+$popover-arrow-outer-color:#eddaaf;
+$popover-arrow-color:#fbeed0;
+$popover-font-color:#9e3733;
+
+.popover {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color:$popover-font-color;
+    z-index: $zindex-popover;
+    max-width: $popover-max-width;
+    line-height: normal;
+    text-align: left;
+    padding: 10px;
+    font-size: $font-size-base;
+    box-sizing:border-box;
+    background-color: $popover-bg;
+    background-clip: padding-box;
+    border: 1px solid $popover-border-color;
+    @include fis-border-radius($popover-border-radius);
+
+    // Offset the popover to account for the popover arrow
+    &.top     { margin-top: -$popover-arrow-width; }
+    &.right   { margin-left: $popover-arrow-width; }
+    &.bottom  { margin-top: $popover-arrow-width; }
+    &.left    { margin-left: -$popover-arrow-width; }
+}
+
+.popover-title {
+    margin: 0; // reset heading margin
+    padding: 8px 14px;
+    font-size: $font-size-base;
+    background-color: $popover-title-bg;
+    border-bottom: 1px solid darken($popover-title-bg, 5%);
+    border-radius: ($popover-border-radius - 1) ($popover-border-radius - 1) 0 0;
+}
+
+.popover-content {
+    padding: 9px 14px;
+}
+
+// Arrows
+//
+// .arrow is outer, .arrow:after is inner
+
+.popover > .arrow {
+    &,
+    &:after {
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+    }
+}
+.popover > .arrow {
+    border-width: $popover-arrow-outer-width;
+}
+.popover > .arrow:after {
+    border-width: $popover-arrow-width;
+    content: "";
+}
+
+.popover {
+    &.top > .arrow {
+        left: 50%;
+        margin-left: -$popover-arrow-outer-width;
+        border-bottom-width: 0;
+        border-top-color: $popover-arrow-outer-color;
+        bottom: -$popover-arrow-outer-width;
+        &:after {
+            content: " ";
+            bottom: 1px;
+            margin-left: -$popover-arrow-width;
+            border-bottom-width: 0;
+            border-top-color: $popover-arrow-color;
+        }
+    }
+    &.right > .arrow {
+        top: 50%;
+        left: -$popover-arrow-outer-width;
+        margin-top: -$popover-arrow-outer-width;
+        border-left-width: 0;
+        border-right-color: $popover-arrow-outer-color;
+        &:after {
+            content: " ";
+            left: 1px;
+            bottom: -$popover-arrow-width;
+            border-left-width: 0;
+            border-right-color: $popover-arrow-color;
+        }
+    }
+    &.bottom > .arrow {
+        left: 50%;
+        margin-left: -$popover-arrow-outer-width;
+        border-top-width: 0;
+        border-bottom-color: $popover-arrow-outer-color;
+        top: -$popover-arrow-outer-width;
+        &:after {
+            content: " ";
+            top: 1px;
+            margin-left: -$popover-arrow-width;
+            border-top-width: 0;
+            border-bottom-color: $popover-arrow-color;
+        }
+    }
+
+    &.left > .arrow {
+        top: 50%;
+        right: -$popover-arrow-outer-width;
+        margin-top: -$popover-arrow-outer-width;
+        border-right-width: 0;
+        border-left-color: $popover-arrow-outer-color;
+        &:after {
+            content: " ";
+            right: 1px;
+            border-right-width: 0;
+            border-left-color: $popover-arrow-color;
+            bottom: -$popover-arrow-width;
+        }
+    }
+}
+//矩形提示
+.rectTip {
+    display:none;
+    padding-left: 20px;
+    padding-right: 20px;
+    line-height: 40px;
+    height: 40px;
+    overflow: hidden;
+    border: 1px solid $popover-border-color;
+    background-color:$popover-bg;
+    @include fis-border-radius($popover-border-radius);
+    color:$popover-font-color;
+    margin-bottom: 20px;
+    vertical-align: middle;
+    .close {
+        cursor: pointer;
+    }
+}
+
+//禁用提示
+.disable-tip {
+    display: none;
+    position: relative;
+    background-color: #1B1E24;
+    color: #fff;
+    opacity: 0.9;
+    width: 120px;
+    font-size: 13px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 2px;
+    text-align: center;
+    line-height: 30px;
+    .tip{
+        border-width: 0 6px 8px 6px;
+        margin-left: -6px;
+        margin-top: -8px;
+        border-color: transparent transparent #1B1E24 transparent;
+        left: 50%;
+        top: 0;
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        line-height: 0px;
+        font-size: 100%;
+    }
+}

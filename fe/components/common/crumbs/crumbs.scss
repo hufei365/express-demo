@@ -1,0 +1,26 @@
+.crumb-menu-main{
+    overflow: hidden;
+    position:relative;
+    min-height: 12px;
+    color:#808080;
+    font-size: 12px;
+
+    em{
+        display: inline-block;
+        margin:0 10px;
+    }
+    span{
+        display: inline-block;
+        cursor: pointer;
+    }
+    span:hover{
+        text-decoration: underline;
+    }
+    .no-line{
+        cursor: default;
+    }
+
+    .no-line:hover{
+        text-decoration: none;
+    }
+}

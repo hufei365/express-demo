@@ -1,0 +1,32 @@
+/* 默认样式 */
+.multiColumnar {
+    .line{
+        width: 100%;
+        clear: both;
+    }
+    .progressbar_1 {
+        background-color: #eee;
+        color: #f2f2f2;
+        display: inline-block;
+        overflow: hidden;
+        float: right;
+        .bar {
+        background-color: green;
+            width: 0;
+            cursor: pointer;
+        }
+    }
+    .option-bth{
+        float: left;
+        display: inline-block;
+        border: 1px solid #e0e0e0;
+        padding: 0px 5px;
+        cursor: pointer;
+        &:hover{
+            border: 1px solid #64c1ff;
+        }
+        span{
+            float: right;
+        }
+    }
+}
