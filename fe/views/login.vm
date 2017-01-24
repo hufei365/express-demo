@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>login</title>
+{{> base }}
+</head>
+<body>
+  <div class="page-main-content has-header" id="page-main-content">
+
+    <input type="text" name="user">
+    <input type="password" name="password">
+    <a class="btn" id="login" href="javascript:void(0);"></a>
+  </div>
+
+  <script type="text/javascript">
+    require.async([ '/components/lib/md5/MD5.js'
+                    ,'/components/common/ajax/ajax.js'
+                    ,'/components/common/base/base.js'
+                     ],
+                  function(MD5, Ajax, $ ){
+
+                      $('#login').off('click').on('click', function(){
+
+                        var name = $('input[name="user"]').val();
+                        var password = MD5.hex_md5($.trim($('input[name="password"]').val()));
+                            Ajax.post('/login', {
+                              name:name,
+                              password: password
+                            }, function(data){
+                              console.log(data);
+                            }, function(error){
+                              console.log(error);
+                            })
+
+                      });
+
+                  });
+  </script>
+</body>
+</html>

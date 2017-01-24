@@ -1,0 +1,6 @@
+<script type="text/javascript">__inline('/components/lib/fdata/fdata.js');</script>
+<script type="text/javascript" src="/components/lib/require/require.js"></script>
+<script type="text/javascript" src="/components/lib/handlebars/handlebars.js"></script>
+<script type="text/javascript" src="/components/lib/handlebars/handlebars-extend.js"></script>
+
+<link rel="stylesheet" href="/components/common/theme/myapp/theme.css">

@@ -10,6 +10,7 @@ var handlebars  = require('express-handlebars');
 
 var filter = require('./routes/filter');
 var login = require('./routes/login');
+var root = require('./routes/root');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
@@ -21,10 +22,10 @@ app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'jade');
 var hbs = handlebars.create({
   defaultLayout:'main',
-  extname: '.hbs'
+  extname: '.vm'
 });
-app.engine('hbs', hbs.engine);
-app.set('view engine', 'hbs');
+app.engine('vm', hbs.engine);
+app.set('view engine', 'vm');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -46,7 +47,7 @@ app.use(session({
 
 
 app.use('/login', login);
-app.use('/',  login);
+app.use('/', login);
 app.use('/index', filter.authorize, index);
 app.use('/users', filter.authorize, users);
 

@@ -46,7 +46,15 @@ fis.util.map([{
 				optimizer: fis.plugin('clean-css')
 			})
 
-			.match('{*.js,*.hbs:js,*.html:js}', {
+			.match('/components/{common,page,widget}/**.js', {
+				isMod: true
+			})
+    	//TODO: lib中使用umd引入, 请在此加入;
+			.match('/components/lib/{jquery,jquery.ui,slimscroll,highcharts,fabric,snap.svg,md5,swiper,socket,jplayer}/**.js', {
+				isMod: true
+			})
+
+			.match('{*.js,*.vm:js,*.hbs:js,*.html:js}', {
 				// js 压缩;
 				optimizer: fis.plugin('uglify-js', {
 
@@ -67,7 +75,7 @@ fis.util.map([{
 					to: '/newGit/expressSS/myapp/public'
 				})
 			})
-			.match('/views/(**.{hbs,vm,html})', {
+			.match('/views/(**.{vm,hbs,html})', {
 				release: '$1',
 				deploy: fis.plugin('local-deliver', {
 					to: '/newGit/expressSS/myapp/views'
