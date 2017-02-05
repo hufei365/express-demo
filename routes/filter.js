@@ -1,6 +1,8 @@
 exports.authorize = function(req, res, next) {
-  if (!req.session.user_id) {
+  var url = req.originalUrl;
+  if ( url != '/login' && !req.session.user_id) {
     res.redirect('/login');
+    //next();
   } else {
     next();
   }

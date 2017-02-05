@@ -45,11 +45,11 @@ app.use(session({
 }));
 // session validate
 
-
+//app.use(filter.authorize);
+//app.use('/', root);
 app.use('/login', login);
-app.use('/', login);
-app.use('/index', filter.authorize, index);
-app.use('/users', filter.authorize, users);
+app.use('/index', index);
+app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
