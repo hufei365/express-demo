@@ -10,6 +10,7 @@ var handlebars  = require('express-handlebars');
 
 var filter = require('./routes/filter');
 var login = require('./routes/login');
+var register = require('./routes/register');
 var root = require('./routes/root');
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -48,6 +49,7 @@ app.use(session({
 //app.use(filter.authorize);
 app.use('/', root);
 app.use('/login', login);
+app.use('/register', register);
 app.use('/index', index);
 app.use('/users', users);
 

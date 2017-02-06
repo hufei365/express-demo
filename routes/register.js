@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var dao = require('../dao/dao');
 
+var dao = require('../dao/dao');
 
 var jsonWrite = function (res, ret) {
 	if(typeof ret === 'undefined') {
@@ -14,27 +14,26 @@ var jsonWrite = function (res, ret) {
 	}
 };
 
-/* GET home page. */
+/* GET register  */
 router.get('/', function(req, res, next) {
-  res.render('login', {layout:false});
+  res.render('register',{layout:false});
 });
 
+/* do register */
 router.post('/', function(req, res, next) {
   var user_name=req.body.name;
   var password=req.body.password;
-
-
-  console.log("User name = "+user_name+", password is "+password);
+  console.log(user_name + '------' + password);
 
   dao.getConnection(function(err, connection) {
 
 			// 建立连接，向表中插入值
 			// 'INSERT INTO user(id, name, age) VALUES(0,?,?)',
-			connection.query('select * from user where name=? and password=?', [user_name, password], function(err, result) {
+			connection.query('INSERT INTO user(id, name, password) VALUES(0,?,?)', [user_name, password], function(err, result) {
 				if(result) {
 					result = {
 						code: 0,
-						msg:'登录成功'
+						msg:'增加成功'
 					};
 				}
 
@@ -47,7 +46,8 @@ router.post('/', function(req, res, next) {
 				connection.release();
 			});
 		});
-  //res.end("yes");
+
+  //res.send('register success');
 
 
 });

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>login</title>
+<title>register</title>
 {{> base }}
 </head>
 <body>
@@ -10,7 +10,8 @@
 
     <input type="text" name="user">
     <input type="password" name="password">
-    <a class="btn" id="login" href="javascript:void(0);">login</a>
+    <!--<input type="password" name="re-password">-->
+    <a class="btn" id="login" href="javascript:void(0);">register</a>
   </div>
 
   <script type="text/javascript">
@@ -24,13 +25,13 @@
 
                         var name = $('input[name="user"]').val();
                         var password = MD5.hex_md5($.trim($('input[name="password"]').val()));
-                            Ajax.post('/login', {
+                            Ajax.post('/register', {
                               name:name,
                               password: password
                             }, function(data){
-                              if(data.code == '200'){
-                                window.location.href = '/index';
-                              }
+                              //if(data.code == '200'){
+                                window.location.href = '/login';
+                              //}
                             }, function(error){
                               console.log(error);
                             })
