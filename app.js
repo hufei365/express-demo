@@ -46,7 +46,7 @@ app.use(session({
 // session validate
 
 //app.use(filter.authorize);
-//app.use('/', root);
+app.use('/', root);
 app.use('/login', login);
 app.use('/index', index);
 app.use('/users', users);
@@ -66,7 +66,11 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  if( err.status == 404 ){
+    res.render('404', {layout: false});
+  } else {
+    res.render('error', {layout:false});
+  }
 });
 
 module.exports = app;
