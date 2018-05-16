@@ -1,0 +1,3 @@
+[submodule "vue-demo"]
+	path = vue-demo
+	url = https://github.com/hufeicom/vue-demo.git
